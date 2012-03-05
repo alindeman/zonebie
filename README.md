@@ -1,6 +1,6 @@
 # Zonebie
 
-TODO: Travis-CI build image
+[![Build Status](https://secure.travis-ci.org/highgroove/zonebie.png)](http://travis-ci.org/highgroove/zonebie)
 
 Zonebie prevents bugs in code that deals with timezones by randomly assigning a
 zone on every run.
