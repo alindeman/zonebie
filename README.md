@@ -29,23 +29,17 @@ If using Bundler (recommended), add to Gemfile:
 
 ### Test::Unit & Minitest
 
-**Unimplemented**
-
 Add to `test/test_helper.rb`:
 
-    Zonebie.assign_random_timezone
+    require "zonebie/test_unit"
 
 ### RSpec
-
-**Unimplemented**
 
 Add to `spec/spec_helper.rb` after `require "rspec"` or `require "rspec/rails"`:
 
     require "zonebie/rspec"
 
 ### Cucumber
-
-**Unimplemented**
 
 Add to `features/support/env.rb` after `require "cucumber"` or `require "cucumber/rails"`:
 
