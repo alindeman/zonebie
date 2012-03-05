@@ -53,7 +53,11 @@ describe Zonebie do
       $stdout.expects(:puts).never
 
       Zonebie.quiet = true
-      Zonebie.set_random_timezone
+      begin
+        Zonebie.set_random_timezone
+      ensure
+        Zonebie.quiet = false
+      end
     end
   end
 end
