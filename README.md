@@ -60,10 +60,10 @@ prints a message to STDOUT:
     [Zonebie] Setting timezone to "Eastern Time (US & Pacific)"
 
 To rerun tests with a specific timezone (e.g., to reproduce a bug that only
-seems present in one zone), set the `ZONE` environment variable:
+seems present in one zone), set the `TZ` environment variable:
 
     # Assuming tests run with simply `rake`
-    ZONE="Eastern Time (US & Pacific)" rake
+    TZ="Eastern Time (US & Pacific)" rake
 
 ## Contributing
 
