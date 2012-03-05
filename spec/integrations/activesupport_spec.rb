@@ -12,6 +12,7 @@ describe Zonebie do
         ActiveSupport::TimeZone.all.map(&:name).include? zone
       end
 
+      $stdout.stubs(:puts)
       Zonebie.set_random_timezone
     end
   end
