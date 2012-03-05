@@ -15,6 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Zonebie::VERSION
 
+  gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec", "~>2.8"
-  gem.add_development_dependency "active_support", ">=2.3"
+  gem.add_development_dependency "activesupport", ">=2.3"
 end

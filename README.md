@@ -15,7 +15,7 @@ Tests must run green against:
 
 A gem that adds timezone support; currently supported is:
 
-* `active_support` >= 2.3 (compatible with Rails 2.3, 3.0, 3.1, 3.2)
+* `activesupport` >= 2.3 (compatible with Rails 2.3, 3.0, 3.1, 3.2)
 
 OR
 
