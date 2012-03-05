@@ -11,7 +11,11 @@ describe Zonebie do
       Zonebie.backend.name.should == :tzinfo
     end
 
-    pending "defaults to tzinfo in the absense of activesupport"
+    it "defaults to tzinfo in the absense of activesupport" do
+      Zonebie::Backends::ActiveSupport.stubs(:usable?).returns(false)
+
+      Zonebie.backend.name.should == :tzinfo
+    end
 
     it "does not allow setting the backend to an unsupported value" do
       expect {

@@ -6,7 +6,7 @@ module Zonebie
 
     def backend
       unless @backend
-        self.backend = :activesupport
+        @backend = @backends.values.detect(&:usable?)
       end
 
       @backend
@@ -20,7 +20,7 @@ module Zonebie
         @backend = backend
       end
 
-      unless @backend
+      if !backend.nil? && @backend.nil?
         raise ArgumentError, "Unsupported backend: #{backend}"
       end
 

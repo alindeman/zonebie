@@ -26,4 +26,20 @@ describe Zonebie::Backends::ActiveSupport do
       described_class.zone = "Eastern Time (US & Canada)"
     end
   end
+
+  describe "usable?" do
+    it "returns true if ActiveSupport is available" do
+      described_class.should be_usable
+    end
+
+    it "returns false if ActiveSupport is unavailable" do
+      old_active_support = ActiveSupport
+      Object.send(:remove_const, :ActiveSupport)
+      begin
+        described_class.should_not be_usable
+      ensure
+        ActiveSupport = old_active_support
+      end
+    end
+  end
 end

@@ -19,6 +19,10 @@ module Zonebie
         def zone=(zone)
           ::Time.zone = zone
         end
+
+        def usable?
+          defined?(::ActiveSupport)
+        end
       end
 
       Zonebie.add_backend(self)
