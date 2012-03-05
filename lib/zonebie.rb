@@ -7,15 +7,22 @@ module Zonebie
         self.backend = :activesupport
       end
 
-      @backend.name
+      @backend
     end
 
-    def backend=(backend_name)
-      if backend = @backends.detect { |b| b.name == backend_name }
-        @backend = backend
+    def backend=(backend)
+      case backend
+      when Symbol
+        @backend = @backends.detect { |b| b.name == backend }
       else
-        raise ArgumentError, "Unsupported backend: #{backend_name}"
+        @backend = backend
       end
+
+      unless @backend
+        raise ArgumentError, "Unsupported backend: #{backend}"
+      end
+
+      @backend
     end
 
     def add_backend(backend)
@@ -24,7 +31,10 @@ module Zonebie
     end
 
     def set_random_timezone
-      zones = @backend.zones
+      zones = backend.zones
+      zone  = zones[rand(zones.length)]
+
+      $stdout.puts("[Zonebie] Setting timezone to \"#{zone}\"")
       @backend.zone = zones[rand(zones.length)]
     end
   end

@@ -3,7 +3,7 @@ require "spec_helper"
 describe Zonebie do
   describe "#backend" do
     it "defaults to the activesupport backend in the presence of activesupport" do
-      Zonebie.backend.should == :activesupport
+      Zonebie.backend.name.should == :activesupport
     end
 
     pending "allows setting the backend to tzinfo"
