@@ -6,7 +6,11 @@ module Zonebie
 
     def backend
       unless @backend
-        @backend = @backends.values.detect(&:usable?)
+        @backend = if @backends[:activesupport].usable?
+                     @backends[:activesupport]
+                   else
+                     @backends.values.detect(&:usable?)
+                   end
       end
 
       @backend
