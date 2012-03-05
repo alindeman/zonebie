@@ -16,4 +16,15 @@ describe Zonebie do
       }.to raise_error(ArgumentError)
     end
   end
+
+  describe "#add_backend" do
+    it "allows registration of backends classes" do
+      expect {
+        Zonebie.backend = :my_new_backend
+      }.to raise_error(ArgumentError)
+
+      Zonebie.add_backend(stub(:name => :my_new_backend))
+      Zonebie.backend = :my_new_backend
+    end
+  end
 end

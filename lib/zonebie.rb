@@ -1,20 +1,26 @@
 require "zonebie/version"
-require "zonebie/backends"
 
 module Zonebie
   class << self
     def backend
-      @backend ||= Zonebie::Backends::ActiveSupport.new
+      unless @backend
+        self.backend = :activesupport
+      end
+
       @backend.name
     end
 
-    def backend=(backend)
-      case backend
-      when :activesupport
-        @backend = Zonebie::Backends::ActiveSupport.new
+    def backend=(backend_name)
+      if backend = @backends.detect { |b| b.name == backend_name }
+        @backend = backend
       else
-        raise ArgumentError, "Unsupported backend"
+        raise ArgumentError, "Unsupported backend: #{backend_name}"
       end
+    end
+
+    def add_backend(backend)
+      @backends ||= []
+      @backends << backend
     end
 
     def set_random_timezone
@@ -23,3 +29,5 @@ module Zonebie
     end
   end
 end
+
+require "zonebie/backends"

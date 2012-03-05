@@ -3,16 +3,20 @@ require "active_support/time"
 module Zonebie
   module Backends
     class ActiveSupport
-      def name
-        :activesupport
-      end
+      Zonebie.add_backend(self)
 
-      def zones
-        ::ActiveSupport::TimeZone.all.map(&:name)
-      end
+      class << self
+        def name
+          :activesupport
+        end
 
-      def zone=(zone)
-        ::Time.zone = zone
+        def zones
+          ::ActiveSupport::TimeZone.all.map(&:name)
+        end
+
+        def zone=(zone)
+          ::Time.zone = zone
+        end
       end
     end
   end

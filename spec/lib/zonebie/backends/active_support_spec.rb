@@ -2,7 +2,9 @@ require "spec_helper"
 
 describe Zonebie::Backends::ActiveSupport do
   describe "#name" do
-    its(:name) { should == :activesupport }
+    it "is :activesupport" do
+      described_class.name.should == :activesupport
+    end
   end
 
   describe "#zones" do
@@ -13,7 +15,7 @@ describe Zonebie::Backends::ActiveSupport do
           stub(:name => "Central Time (US & Canada)")
         ])
 
-      subject.zones.should =~ ["Eastern Time (US & Canada)", "Central Time (US & Canada)"]
+      described_class.zones.should =~ ["Eastern Time (US & Canada)", "Central Time (US & Canada)"]
     end
   end
 
@@ -21,7 +23,7 @@ describe Zonebie::Backends::ActiveSupport do
     it "sets Time.zone provided by ActiveSupport" do
       ::Time.expects(:zone=).with("Eastern Time (US & Canada)")
 
-      subject.zone = "Eastern Time (US & Canada)"
+      described_class.zone = "Eastern Time (US & Canada)"
     end
   end
 end
