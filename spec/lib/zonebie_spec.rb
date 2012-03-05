@@ -40,7 +40,9 @@ describe Zonebie do
     end
 
     it "asks the backend to set the zone" do
+      $stdout.stubs(:puts)
       backend.expects(:zone=).with("Eastern Time (US & Canada)")
+
       Zonebie.set_random_timezone
     end
 
