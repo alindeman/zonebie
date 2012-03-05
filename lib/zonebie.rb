@@ -1,4 +1,4 @@
-require "zonebie/version"
+require File.expand_path("zonebie/version", File.dirname(__FILE__))
 
 module Zonebie
   class << self
@@ -30,4 +30,4 @@ module Zonebie
   end
 end
 
-require "zonebie/backends"
+require File.expand_path("zonebie/backends", File.dirname(__FILE__))

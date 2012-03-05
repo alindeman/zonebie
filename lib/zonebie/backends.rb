@@ -1,1 +1,1 @@
-require "zonebie/backends/active_support"
+require File.expand_path("backends/active_support", File.dirname(__FILE__))
