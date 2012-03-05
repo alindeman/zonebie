@@ -6,9 +6,12 @@ describe Zonebie do
       Zonebie.backend.name.should == :activesupport
     end
 
-    pending "allows setting the backend to tzinfo"
+    it "allows setting the backend to tzinfo" do
+      Zonebie.backend = :tzinfo
+      Zonebie.backend.name.should == :tzinfo
+    end
 
-    pending "defaults to tzinfo in the absense ot activesupport"
+    pending "defaults to tzinfo in the absense of activesupport"
 
     it "does not allow setting the backend to an unsupported value" do
       expect {

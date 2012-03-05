@@ -1,23 +1,23 @@
 begin
-  require "active_support/time"
+  require "tzinfo"
 rescue LoadError
   # not required; this backend will simply not be used
 end
 
 module Zonebie
   module Backends
-    class ActiveSupport
+    class TZInfo
       class << self
         def name
-          :activesupport
+          :tzinfo
         end
 
         def zones
-          ::ActiveSupport::TimeZone.all.map(&:name)
+          ::TZInfo::Timezone.all.map(&:identifier)
         end
 
         def zone=(zone)
-          ::Time.zone = zone
+          $stderr.puts("[Zonebie] It is not possible to set a global timezone with `tzinfo`")
         end
       end
 

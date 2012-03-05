@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec", "~>2.8"
-  gem.add_development_dependency "activesupport", ">=2.3"
   gem.add_development_dependency "mocha", "~>0.10.0"
+
+  gem.add_development_dependency "activesupport", ">=2.3"
+  gem.add_development_dependency "tzinfo", ">=0.3"
 end
