@@ -36,7 +36,7 @@ module Zonebie
       zone = ENV['TZ'] || random_timezone
 
       $stdout.puts("[Zonebie] Setting timezone to \"#{zone}\"") unless quiet
-      @backend.zone = zone
+      backend.zone = zone
     end
 
     def random_timezone
