@@ -31,27 +31,33 @@ If using Bundler (recommended), add to Gemfile:
 
 Add to `test/test_helper.rb`:
 
-    require "zonebie/test_unit"
+    Zonebie.set_random_timezone
 
 ### RSpec
 
-Add to `spec/spec_helper.rb` after `require "rspec"` or `require "rspec/rails"`:
+Add to `spec/spec_helper.rb` after `require "rspec"` or `require
+"rspec/rails"`:
 
     require "zonebie/rspec"
 
 ### Cucumber
 
-Add to `features/support/env.rb` after `require "cucumber"` or `require "cucumber/rails"`:
+Add a file `features/support/zonebie.rb` with the following contents:
 
-    require "zonebie/cucumber"
+    Zonebie.set_random_timezone
 
 ## Usage
 
-When `Zonebie.assign_random_timezone` is called (if using RSpec or Cucumber,
-this call is automatically setup for you), Zonebie assigns a timezone and
-prints a message to STDOUT:
+When `Zonebie.set_random_timezone` is called (if using RSpec, this call is
+automatically setup for you), Zonebie assigns a timezone and prints a message
+to STDOUT:
 
     [Zonebie] Setting timezone to "Eastern Time (US & Canada)"
+
+If you would rather that Zonebie not print out this information during your tests,
+put Zonebie in quiet mode before calling `set_random_timezone`:
+
+    Zonebie.quiet = true
 
 To rerun tests with a specific timezone (e.g., to reproduce a bug that only
 seems present in one zone), set the `TZ` environment variable:

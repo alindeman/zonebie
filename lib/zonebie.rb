@@ -2,6 +2,8 @@ require File.expand_path("zonebie/version", File.dirname(__FILE__))
 
 module Zonebie
   class << self
+    attr_accessor :quiet
+
     def backend
       unless @backend
         self.backend = :activesupport
@@ -34,7 +36,7 @@ module Zonebie
       zones = backend.zones
       zone  = zones[rand(zones.length)]
 
-      $stdout.puts("[Zonebie] Setting timezone to \"#{zone}\"")
+      $stdout.puts("[Zonebie] Setting timezone to \"#{zone}\"") unless quiet
       @backend.zone = zones[rand(zones.length)]
     end
   end

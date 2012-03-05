@@ -43,5 +43,17 @@ describe Zonebie do
       backend.expects(:zone=).with("Eastern Time (US & Canada)")
       Zonebie.set_random_timezone
     end
+
+    it "outputs the timezone to STDOUT" do
+      $stdout.expects(:puts).with("[Zonebie] Setting timezone to \"Eastern Time (US & Canada)\"")
+      Zonebie.set_random_timezone
+    end
+
+    it "does not output the timezone to STDOUT if quiet mode is enabled" do
+      $stdout.expects(:puts).never
+
+      Zonebie.quiet = true
+      Zonebie.set_random_timezone
+    end
   end
 end
