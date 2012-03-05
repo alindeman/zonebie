@@ -13,19 +13,15 @@ Tests must run green against:
 * JRuby 1.6 (1.8 and 1.9 mode)
 * Rubinius 1.2 and 2.0 (1.8 and 1.9 mode)
 
-A gem that adds timezone support; currently supported is:
-
 * `activesupport` >= 2.3 (compatible with Rails 2.3, 3.0, 3.1, 3.2)
-
-OR
-
-* **Unimplemented** `tzinfo`
 
 ## Installation
 
 If using Bundler (recommended), add to Gemfile:
 
    gem 'zonebie'
+
+## Usage with Rails & ActiveSupport
 
 ### Test::Unit & Minitest
 
@@ -38,7 +34,7 @@ Add to `test/test_helper.rb`:
 Add to `spec/spec_helper.rb` after `require "rspec"` or `require
 "rspec/rails"`:
 
-    require "zonebie/rspec"
+    Zonebie.set_random_timezone
 
 ### Cucumber
 
@@ -46,11 +42,19 @@ Add a file `features/support/zonebie.rb` with the following contents:
 
     Zonebie.set_random_timezone
 
-## Usage
+## Other Usage
 
-When `Zonebie.set_random_timezone` is called (if using RSpec, this call is
-automatically setup for you), Zonebie assigns a timezone and prints a message
-to STDOUT:
+If you simply need a random timezone for some other part of your tests,
+Zonebie can help as well.
+
+    # e.g. with Rails
+    zone = ActiveSupport::TimeZone[Zonebie.random_timezone]
+    puts zone.now
+
+## Reproducing Bugs
+
+When `Zonebie.set_random_timezone` is called, Zonebie assigns a timezone and
+prints a message to STDOUT:
 
     [Zonebie] Setting timezone to "Eastern Time (US & Canada)"
 

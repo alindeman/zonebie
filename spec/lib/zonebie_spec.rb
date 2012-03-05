@@ -62,4 +62,20 @@ describe Zonebie do
       end
     end
   end
+
+  describe "#random_timezone" do
+    let(:backend) {
+      stub_everything(:name  => :my_awesome_backend,
+                      :zones => ["Eastern Time (US & Canada)"])
+    }
+
+    before do
+      Zonebie.add_backend(backend)
+      Zonebie.backend = :my_awesome_backend
+    end
+
+    it "returns a random timezone" do
+      Zonebie.random_timezone.should == "Eastern Time (US & Canada)"
+    end
+  end
 end
