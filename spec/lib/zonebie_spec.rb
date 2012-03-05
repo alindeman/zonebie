@@ -68,6 +68,15 @@ describe Zonebie do
         Zonebie.quiet = false
       end
     end
+
+    it "sends the timezone as ENV[TZ] if present" do
+      $stdout.stubs(:puts)
+
+      backend.expects(:zone=).with("Pacific Time (US & Canada)")
+
+      ENV['TZ'] = "Pacific Time (US & Canada)"
+      Zonebie.set_random_timezone
+    end
   end
 
   describe "#random_timezone" do
