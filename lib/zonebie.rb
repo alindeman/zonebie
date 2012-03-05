@@ -13,7 +13,7 @@ module Zonebie
     def backend=(backend)
       case backend
       when Symbol
-        @backend = @backends.detect { |b| b.name == backend }
+        @backend = @backends[backend]
       else
         @backend = backend
       end
@@ -26,8 +26,8 @@ module Zonebie
     end
 
     def add_backend(backend)
-      @backends ||= []
-      @backends << backend
+      @backends ||= {}
+      @backends[backend.name] = backend
     end
 
     def set_random_timezone

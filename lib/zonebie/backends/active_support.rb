@@ -3,8 +3,6 @@ require "active_support/time"
 module Zonebie
   module Backends
     class ActiveSupport
-      Zonebie.add_backend(self)
-
       class << self
         def name
           :activesupport
@@ -18,6 +16,8 @@ module Zonebie
           ::Time.zone = zone
         end
       end
+
+      Zonebie.add_backend(self)
     end
   end
 end
