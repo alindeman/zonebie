@@ -27,4 +27,21 @@ describe Zonebie do
       Zonebie.backend = :my_new_backend
     end
   end
+
+  describe "#set_random_timezone" do
+    let(:backend) {
+      stub_everything(:name  => :my_awesome_backend,
+                      :zones => ["Eastern Time (US & Canada)"])
+    }
+
+    before do
+      Zonebie.add_backend(backend)
+      Zonebie.backend = :my_awesome_backend
+    end
+
+    it "asks the backend to set the zone" do
+      backend.expects(:zone=).with("Eastern Time (US & Canada)")
+      Zonebie.set_random_timezone
+    end
+  end
 end
