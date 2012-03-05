@@ -7,23 +7,24 @@ zone on every run.
 
 ## Requirements
 
-Tests must run green against:
+* MRI (1.8.7, 1.9.2, 1.9.3)
+* JRuby (1.6)
+* Rubinius (1.2, 2.0)
 
-* Ruby 1.8.7, 1.9.2, 1.9.3
-* JRuby 1.6 (1.8 and 1.9 mode)
-* Rubinius 1.2 and 2.0 (1.8 and 1.9 mode)
+***
 
-* `activesupport` >= 2.3 (compatible with Rails 2.3, 3.0, 3.1, 3.2)
+And **either** of these gems which adds timezone support to Ruby:
 
-OR
-
+* `activesupport` >= 2.3 (Rails 2.3, 3.0, 3.1, 3.2)
 * `tzinfo` >= 0.3
 
 ## Installation
 
 If using Bundler (recommended), add to Gemfile:
 
-   gem 'zonebie'
+````ruby
+gem 'zonebie'
+````
 
 ## Usage with Rails & ActiveSupport
 
@@ -37,19 +38,25 @@ Specifically for ActiveSupport, it sets `Time.zone`.
 
 Add to `test/test_helper.rb`:
 
-    Zonebie.set_random_timezone
+```ruby
+Zonebie.set_random_timezone
+```
 
 ### RSpec
 
 Add to `spec/spec_helper.rb`:
 
-    Zonebie.set_random_timezone
+```ruby
+Zonebie.set_random_timezone
+```
 
 ### Cucumber
 
 Add a file `features/support/zonebie.rb` with the following contents:
 
-    Zonebie.set_random_timezone
+```ruby
+Zonebie.set_random_timezone
+```
 
 ## Usage with TZInfo
 
@@ -60,30 +67,38 @@ However, `Zonebie.set_random_timezone` does not work outside of ActiveSupport
 because there is not a concept of a global timezone setting. If you simply need
 a random timezone for some other part of your tests, Zonebie can help.
 
-    zone = TZInfo::Timezone.get(Zonebie.random_timezone)
-    puts zone.now
+```ruby
+zone = TZInfo::Timezone.get(Zonebie.random_timezone)
+puts zone.now
 
-    # Also works in Rails/ActiveSupport
-    zone = ActiveSupport::TimeZone[Zonebie.random_timezone]
-    puts zone.now
+# Also works in Rails/ActiveSupport
+zone = ActiveSupport::TimeZone[Zonebie.random_timezone]
+puts zone.now
+```
 
 ## Reproducing Bugs
 
 When `Zonebie.set_random_timezone` is called, Zonebie assigns a timezone and
 prints a message to STDOUT:
 
-    [Zonebie] Setting timezone to "Eastern Time (US & Canada)"
+```
+[Zonebie] Setting timezone to "Eastern Time (US & Canada)"
+```
 
 If you would rather that Zonebie not print out this information during your tests,
 put Zonebie in quiet mode before calling `set_random_timezone`:
 
-    Zonebie.quiet = true
+```ruby
+Zonebie.quiet = true
+```
 
 To rerun tests with a specific timezone (e.g., to reproduce a bug that only
 seems present in one zone), set the `TZ` environment variable:
 
-    # Assuming tests run with simply `rake`
-    TZ="Eastern Time (US & Canada)" rake
+```ruby
+# Assuming tests run with simply `rake`
+TZ="Eastern Time (US & Canada)" rake
+```
 
 ## Contributing
 
