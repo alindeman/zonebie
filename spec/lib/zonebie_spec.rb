@@ -58,6 +58,13 @@ describe Zonebie do
       Zonebie.set_random_timezone
     end
 
+    it "outputs the ascii map to STDOUT if the option is present" do
+      Zonebie::Extras::AsciiMap.any_instance.stubs(:to_s).returns('ascii map')
+      $stdout.expects(:puts).with("[Zonebie] Setting timezone to \"Eastern Time (US & Canada)\"")
+      $stdout.expects(:puts).with('ascii map')
+      Zonebie.set_random_timezone(ascii_map: true)
+    end
+
     it "does not output the timezone to STDOUT if quiet mode is enabled" do
       $stdout.expects(:puts).never
 
