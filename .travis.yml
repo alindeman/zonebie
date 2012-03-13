@@ -7,6 +7,9 @@ rvm:
   - jruby-19mode
   - rbx-18mode
   - rbx-19mode
+branches:
+  only:
+    - master
 notifications:
   email:
     - alindeman@gmail.com
