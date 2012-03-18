@@ -22,6 +22,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "activesupport", ">=2.3"
   gem.add_development_dependency "tzinfo", ">=0.3"
 
-  gem.add_dependency "rmagick"
+  gem.add_dependency "chunky_png"
   gem.add_dependency "colorize"
 end
