@@ -42,7 +42,7 @@ module Zonebie
 
       unless quiet
         $stdout.puts("[Zonebie] Setting timezone to \"#{zone}\"")
-        $stdout.puts(Zonebie::Extras::AsciiMap.new(zone)) if options[:ascii_map]
+        $stdout.puts(Zonebie::Extras::AsciiMap.new(zone).to_s) if options[:ascii_map]
       end
       backend.zone = zone
     end
