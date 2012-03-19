@@ -12,8 +12,8 @@ module Zonebie
 
       def initialize(zone)
         self.zone  = zone
-        self.ascii = map_to_ascii
         self.mark  = false
+        self.ascii = map_to_ascii
       end
 
       def to_s
@@ -22,6 +22,17 @@ module Zonebie
 
       private
 
+      def disable_webmock
+        if defined? WebMock
+          allow_net_connect_was = WebMock::Config.instance.allow_net_connect
+          WebMock::Config.instance.allow_net_connect = true
+          yield
+          WebMock::Config.instance.allow_net_connect = allow_net_connect_was
+        else
+          yield
+        end
+      end
+
       def google_maps_request
         "http://maps.googleapis.com/maps/api/staticmap?format=png8&zoom=1&maptype=roadmap&sensor=false&center=0,0&size=500x500&markers=size:large%7Ccolor:red%7C#{URI.encode(zone)}&style=feature:all%7Celement:labels%7Cvisibility:off&style=feature:all%7Celement:geometry%7Clightness:100&style=feature:water%7Celement:geometry%7Clightness:-100"
       end
@@ -29,8 +40,10 @@ module Zonebie
       def map_to_ascii
         image = nil
 
-        open google_maps_request do |f|
-          image = ChunkyPNG::Image.from_blob(f.read)
+        disable_webmock do
+          open google_maps_request do |f|
+            image = ChunkyPNG::Image.from_blob(f.read)
+          end
         end
 
         image.resample_nearest_neighbor!(80, 30)
