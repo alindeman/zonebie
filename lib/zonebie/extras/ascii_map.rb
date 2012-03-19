@@ -1,5 +1,5 @@
 require 'net/http'
-require 'tempfile'
+require 'open-uri'
 require 'chunky_png'
 require 'rainbow'
 
@@ -12,7 +12,6 @@ module Zonebie
 
       def initialize(zone)
         self.zone  = zone
-        self.image = download_map
         self.ascii = map_to_ascii
         self.mark  = false
       end
@@ -23,19 +22,17 @@ module Zonebie
 
       private
 
-      def download_map
-        request = "http://maps.googleapis.com/maps/api/staticmap?format=png8&zoom=1&maptype=roadmap&sensor=false&center=0,0&size=500x500&markers=size:large%7Ccolor:red%7C#{URI.encode(zone)}&style=feature:all%7Celement:labels%7Cvisibility:off&style=feature:all%7Celement:geometry%7Clightness:100&style=feature:water%7Celement:geometry%7Clightness:-100"
-        uri = URI.parse(request)
-        response = Net::HTTP.get_response(uri)
-
-        image = Tempfile.new(['ascii_map', '.png'])
-        image.write(response.body)
-        image.close
-        image
+      def google_maps_request
+        "http://maps.googleapis.com/maps/api/staticmap?format=png8&zoom=1&maptype=roadmap&sensor=false&center=0,0&size=500x500&markers=size:large%7Ccolor:red%7C#{URI.encode(zone)}&style=feature:all%7Celement:labels%7Cvisibility:off&style=feature:all%7Celement:geometry%7Clightness:100&style=feature:water%7Celement:geometry%7Clightness:-100"
       end
 
       def map_to_ascii
-        image = ChunkyPNG::Image.from_file(self.image.path)
+        image = nil
+
+        open google_maps_request do |f|
+          image = ChunkyPNG::Image.from_blob(f.read)
+        end
+
         image.resample_nearest_neighbor!(80, 30)
         dots = image.pixels.map{ |p| colored_dot(p) }
         dots.each_slice(80).map{ |d| d.join }.join("\n")
