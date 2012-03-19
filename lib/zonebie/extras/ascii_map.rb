@@ -1,7 +1,9 @@
 require 'net/http'
 require 'tempfile'
 require 'chunky_png'
-require 'colorize'
+require 'rainbow'
+
+Sickill::Rainbow.enabled = true
 
 module Zonebie
   module Extras
@@ -51,7 +53,7 @@ module Zonebie
             '.'
           else
             self.mark = true
-            '.'.red
+            '.'.color(:red)
           end
         end
       end
