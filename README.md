@@ -76,9 +76,37 @@ zone = ActiveSupport::TimeZone[Zonebie.random_timezone]
 puts zone.now
 ```
 
+## Reproducing Bugs
+
+When `Zonebie.set_random_timezone` is called, Zonebie assigns a timezone and
+prints a message to STDOUT:
+
+```
+[Zonebie] Setting timezone to "Eastern Time (US & Canada)"
+```
+
+If you would rather that Zonebie not print out this information during your tests,
+put Zonebie in quiet mode before calling `set_random_timezone`:
+
+```ruby
+Zonebie.quiet = true
+```
+
+To rerun tests with a specific timezone (e.g., to reproduce a bug that only
+seems present in one zone), set the `TZ` environment variable:
+
+```ruby
+# Assuming tests run with simply `rake`
+TZ="Eastern Time (US & Canada)" rake
+```
+
 ## For the Geographically Impaired
 
-Check out this sweet ascii globe:
+Zonebie can generate an ASCII map that shows where on the globe your tests are
+running.
+
+Note that this makes a request to Google Maps, so it's likely not a good idea
+to run on each test run :)
 
 ```
                      .....   ......                                             
@@ -112,34 +140,18 @@ Check out this sweet ascii globe:
      ...........................................................................
 ```
 
-To get your own pass in this option:
+Enable the map by setting the `:ascii_map` option to `true`. Again, because it
+makes an HTTP request, you likely only want to enable it in certain
+circumstances (e.g., on a CI server or when you explicitly request it):
 
 ```ruby
-Zonebie.set_random_timezone(:ascii_map => true)
+Zonebie.set_random_timezone(:ascii_map => ENV['CI'] || ENV['MAP'])
 ```
 
-## Reproducing Bugs
-
-When `Zonebie.set_random_timezone` is called, Zonebie assigns a timezone and
-prints a message to STDOUT:
-
-```
-[Zonebie] Setting timezone to "Eastern Time (US & Canada)"
-```
-
-If you would rather that Zonebie not print out this information during your tests,
-put Zonebie in quiet mode before calling `set_random_timezone`:
+And run with:
 
 ```ruby
-Zonebie.quiet = true
-```
-
-To rerun tests with a specific timezone (e.g., to reproduce a bug that only
-seems present in one zone), set the `TZ` environment variable:
-
-```ruby
-# Assuming tests run with simply `rake`
-TZ="Eastern Time (US & Canada)" rake
+MAP=1 rake
 ```
 
 ## Contributing
