@@ -63,7 +63,7 @@ module Zonebie
             '.'
           else
             self.mark = true
-            '.'.color(:red)
+            'X'.color(:red)
           end
         end
       end
