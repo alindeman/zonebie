@@ -6,8 +6,8 @@ Zonebie prevents bugs in code that deals with timezones by randomly assigning a
 zone on every run.
 
 If Zonebie helps trigger a timezone-related bug, you can temporarily assign the
-`ZONEBIE_TZ` variable to make your tests deterministic again while you debug
-(more information below).
+`ZONEBIE_TZ` environment variable to make your tests deterministic while you
+debug (more information below).
 
 ## Requirements
 
