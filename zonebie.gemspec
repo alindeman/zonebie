@@ -16,9 +16,10 @@ Gem::Specification.new do |gem|
   gem.version       = Zonebie::VERSION
 
   gem.add_development_dependency "rake"
-  gem.add_development_dependency "rspec", "~>2.8"
-  gem.add_development_dependency "mocha", "~>0.10.0"
+  gem.add_development_dependency "rspec", "~>2.14"
+  gem.add_development_dependency "mocha", "~>0.14.0"
 
   gem.add_development_dependency "activesupport", ">=2.3"
-  gem.add_development_dependency "tzinfo", ">=0.3"
+  gem.add_development_dependency "tzinfo", "~>1.0", ">= 1.0.1"
+  gem.add_development_dependency "tzinfo-data", ">= 1.2013.4"
 end
