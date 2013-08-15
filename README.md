@@ -7,15 +7,15 @@ zone on every run.
 
 ## Requirements
 
-* MRI (1.8.7, 1.9.2, 1.9.3)
-* JRuby (1.6)
+* MRI (1.8.7, 1.9.2, 1.9.3, 2.0.0)
+* JRuby (1.6, 1.7)
 * Rubinius (1.2, 2.0)
 
 ***
 
 And **either** of these gems which adds timezone support to Ruby:
 
-* `activesupport` >= 2.3 (Rails 2.3, 3.0, 3.1, 3.2)
+* `activesupport` >= 2.3 (Rails 2.3, 3.0, 3.1, 3.2, 4.0)
 * `tzinfo` >= 0.3
 
 ## Installation
