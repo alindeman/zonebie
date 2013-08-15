@@ -2,11 +2,11 @@
 require File.expand_path('../lib/zonebie/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Andy Lindeman"]
-  gem.email         = ["alindeman@gmail.com"]
+  gem.authors       = ['Andy Lindeman', 'Steven Harman', 'Patrick Van Stee']
+  gem.email         = ['andy@andylindeman.com', 'steveharman@gmail.com', 'patrickvanstee@gmail.com']
   gem.description   = %q{Runs your tests in a random timezone}
   gem.summary       = %q{Zonebie prevents bugs in code that deals with timezones by randomly assigning a zone on every run}
-  gem.homepage      = "https://github.com/highgroove/zonebie"
+  gem.homepage      = "https://github.com/alindeman/zonebie"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
