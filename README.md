@@ -100,60 +100,6 @@ seems present in one zone), set the `TZ` environment variable:
 TZ="Eastern Time (US & Canada)" rake
 ```
 
-## For the Geographically Impaired
-
-Zonebie can generate an ASCII map that shows where on the globe your tests are
-running.
-
-Note that this makes a request to Google Maps, so it's likely not a good idea
-to run on each test run :)
-
-```
-                     .....   ......                                             
-                    ..... ...........                       .                   
-                .  . ..  ...........       .                  .                 
-            .    .. ..  ...........                    .       ..               
-            ..   .. .      ........                 .      .......              
-   .....     .... .   ...   .......          ..      . . ...................    
-............ ........  ...  ...    ..      ..... ...............................
-  ...  ......... .    ..                 ..... ............................  .  
-          ........... ... .           ..  .....................  ......         
-            .............               ........ .. ...................         
-            ...........               ..   .  ..... ............... .           
-               ...   .               .............. ................            
-                 ...                ............. ..     ..  ...   .            
-                      .....           .. ..........               . .           
-                      ..........           ......                       .       
-                        .......            .....  .                 .....       
-                        .....               ...                   .........     
-                       ....                                             ..      
-                       ..                                                       
-                        .                                                       
-                                                                                
-                         .                                                      
-                        ..                    .......... ...................    
-           .     .... ....          ..........................................  
-       ............... .         ............................................   
-    ..................       .  .............................................   
-     .....................     .............................................    
-     .........................................................................  
-     ...........................................................................
-```
-
-Enable the map by setting the `:ascii_map` option to `true`. Again, because it
-makes an HTTP request, you likely only want to enable it in certain
-circumstances (e.g., on a CI server or when you explicitly request it):
-
-```ruby
-Zonebie.set_random_timezone(:ascii_map => ENV['CI'] || ENV['MAP'])
-```
-
-And run with:
-
-```ruby
-MAP=1 rake
-```
-
 ## Contributing
 
 1. Fork it

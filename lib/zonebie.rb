@@ -1,5 +1,4 @@
 require File.expand_path("zonebie/version", File.dirname(__FILE__))
-require File.expand_path("zonebie/extras", File.dirname(__FILE__))
 
 module Zonebie
   class << self
@@ -37,13 +36,10 @@ module Zonebie
       @backends[backend.name] = backend
     end
 
-    def set_random_timezone(options = {})
+    def set_random_timezone
       zone = ENV['TZ'] || random_timezone
 
-      unless quiet
-        $stdout.puts("[Zonebie] Setting timezone to \"#{zone}\"")
-        $stdout.puts(Zonebie::Extras::AsciiMap.new(zone).to_s) if options[:ascii_map]
-      end
+      $stdout.puts("[Zonebie] Setting timezone to \"#{zone}\"") unless quiet
       backend.zone = zone
     end
 
