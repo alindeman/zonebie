@@ -1,4 +1,4 @@
-## 0.5 (15 August 2013)
+## 0.5.0 (15 August 2013)
 
 * Changed the environment variable used to make tests temporarily deterministic
   from `TZ` to `ZONEBIE_TZ`. `TZ` has meaning to the system and so it was not
