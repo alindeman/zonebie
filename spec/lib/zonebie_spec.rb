@@ -54,7 +54,7 @@ describe Zonebie do
     end
 
     it "outputs the timezone to STDOUT" do
-      $stdout.expects(:puts).with("[Zonebie] Setting timezone to \"Eastern Time (US & Canada)\"")
+      $stdout.expects(:puts).with("[Zonebie] Setting timezone: ZONEBIE_TZ=\"Eastern Time (US & Canada)\"")
       Zonebie.set_random_timezone
     end
 
@@ -69,12 +69,12 @@ describe Zonebie do
       end
     end
 
-    it "sends the timezone as ENV[TZ] if present" do
+    it "sends the timezone as ENV[ZONEBIE_TZ] if present" do
       $stdout.stubs(:puts)
 
       backend.expects(:zone=).with("Pacific Time (US & Canada)")
 
-      ENV['TZ'] = "Pacific Time (US & Canada)"
+      ENV['ZONEBIE_TZ'] = "Pacific Time (US & Canada)"
       Zonebie.set_random_timezone
     end
   end

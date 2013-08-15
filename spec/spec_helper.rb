@@ -4,7 +4,7 @@ RSpec.configure do |c|
   c.mock_with :mocha
 
   c.before do
-    ENV.delete('TZ')
+    ENV.delete('ZONEBIE_TZ')
     Zonebie.backend = nil # reset to default
   end
 end

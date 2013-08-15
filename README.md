@@ -93,11 +93,11 @@ Zonebie.quiet = true
 ```
 
 To rerun tests with a specific timezone (e.g., to reproduce a bug that only
-seems present in one zone), set the `TZ` environment variable:
+seems present in one zone), set the `ZONEBIE_TZ` environment variable:
 
 ```ruby
 # Assuming tests run with simply `rake`
-TZ="Eastern Time (US & Canada)" rake
+ZONEBIE_TZ="Eastern Time (US & Canada)" rake
 ```
 
 ## Contributing
