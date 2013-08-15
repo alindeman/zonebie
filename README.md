@@ -5,6 +5,10 @@
 Zonebie prevents bugs in code that deals with timezones by randomly assigning a
 zone on every run.
 
+If Zonebie helps trigger a timezone-related bug, you can temporarily assign the
+`ZONEBIE_TZ` variable to make your tests deterministic again while you debug
+(more information below).
+
 ## Requirements
 
 * MRI (1.8.7, 1.9.2, 1.9.3, 2.0.0)
@@ -82,11 +86,11 @@ When `Zonebie.set_random_timezone` is called, Zonebie assigns a timezone and
 prints a message to STDOUT:
 
 ```
-[Zonebie] Setting timezone to "Eastern Time (US & Canada)"
+[Zonebie] Setting timezone: ZONEBIE_TZ="Eastern Time (US & Canada)"
 ```
 
-If you would rather that Zonebie not print out this information during your tests,
-put Zonebie in quiet mode before calling `set_random_timezone`:
+If you would rather that Zonebie not print out this information during your
+tests, put Zonebie in quiet mode before calling `set_random_timezone`:
 
 ```ruby
 Zonebie.quiet = true
