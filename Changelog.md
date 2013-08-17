@@ -1,3 +1,7 @@
+## 0.5.1 (17 August 2013)
+
+* Includes license information in gemspec. (Andy Lindeman)
+
 ## 0.5.0 (15 August 2013)
 
 * Changed the environment variable used to make tests temporarily deterministic

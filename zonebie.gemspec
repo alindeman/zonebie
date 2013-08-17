@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Runs your tests in a random timezone}
   gem.summary       = %q{Zonebie prevents bugs in code that deals with timezones by randomly assigning a zone on every run}
   gem.homepage      = "https://github.com/alindeman/zonebie"
+  gem.license       = 'MIT'
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
