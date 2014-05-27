@@ -30,13 +30,13 @@ If using Bundler (recommended), add to Gemfile:
 gem 'zonebie'
 ````
 
-## Usage with Rails & ActiveSupport
+## Usage with Rails & Active Support
 
-ActiveSupport allows setting a global timezone that will be used for many date
+Active Support allows setting a global timezone that will be used for many date
 and time calculations throughout the application.
 
 Zonebie can set this to a random timezone at the beginning of test runs.
-Specifically for ActiveSupport, it sets `Time.zone`.
+Specifically for Active Support, it sets `Time.zone`.
 
 ### Test::Unit & Minitest
 
@@ -64,10 +64,10 @@ Zonebie.set_random_timezone
 
 ## Usage with TZInfo
 
-Zonebie can use the `tzinfo` gem, allowing it to work outside of ActiveSupport
+Zonebie can use the `tzinfo` gem, allowing it to work outside of Active Support
 (Rails).
 
-However, `Zonebie.set_random_timezone` does not work outside of ActiveSupport
+However, `Zonebie.set_random_timezone` does not work outside of Active Support
 because there is not a concept of a global timezone setting. If you simply need
 a random timezone for some other part of your tests, Zonebie can help.
 
@@ -75,7 +75,7 @@ a random timezone for some other part of your tests, Zonebie can help.
 zone = TZInfo::Timezone.get(Zonebie.random_timezone)
 puts zone.now
 
-# Also works in Rails/ActiveSupport
+# Also works in Rails/Active Support
 zone = ActiveSupport::TimeZone[Zonebie.random_timezone]
 puts zone.now
 ```
