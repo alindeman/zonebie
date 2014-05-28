@@ -19,7 +19,7 @@ debug (more information below).
 
 And **either** of these gems which adds timezone support to Ruby:
 
-* `activesupport` >= 2.3 (Rails 2.3, 3.0, 3.1, 3.2, 4.0)
+* `activesupport` >= 2.3 (Rails 2.3, 3.0, 3.1, 3.2, 4.0, 4.1)
 * `tzinfo` >= 0.3
 
 ## Installation
