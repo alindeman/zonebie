@@ -4,7 +4,7 @@ require 'wikipedia'
 
 describe "#print_timezone_info" do
   let(:content) { "some wiki info\nsecond paragraph" }
-  let(:expected) { "some wiki info\n" }
+  let(:expected) { "\nsome wiki info\n" }
   let(:page) { mock 'page' }
   let(:out) { StringIO.new }
 
