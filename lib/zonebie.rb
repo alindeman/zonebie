@@ -1,5 +1,5 @@
 require File.expand_path("zonebie/version", File.dirname(__FILE__))
-require 'zonebie/zone_info'
+require "zonebie/zone_info"
 
 module Zonebie
   class << self
@@ -38,8 +38,8 @@ module Zonebie
     end
 
     def set_random_timezone
-      zone = ENV['ZONEBIE_TZ'] || random_timezone
-      load_from_wikipedia(zone) if ENV['ZONEBIE_INFO']
+      zone = ENV["ZONEBIE_TZ"] || random_timezone
+      load_from_wikipedia(zone) if ENV["ZONEBIE_INFO"]
 
       $stdout.puts("[Zonebie] Setting timezone: ZONEBIE_TZ=\"#{zone}\"") unless quiet
       backend.zone = zone
