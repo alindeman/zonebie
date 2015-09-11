@@ -104,6 +104,17 @@ seems present in one zone), set the `ZONEBIE_TZ` environment variable:
 ZONEBIE_TZ="Eastern Time (US & Canada)" rake
 ```
 
+## Timezone Info
+
+To print out a paragraph from Wikipedia (if available) about each timezone
+set the `ZONEBIE_INFO` environment variable before your tests run. Then in an
+after hook you just need to call `Zonebie.print_timezone_info` to print the
+information to STDOUT. This is already included in `zonebie/rspec`.
+
+Data is collected in a new thread so shouldn't slow down your tests by too
+much. The `wikipedia-client` gem must be in your Gemfile for this feature
+to work.
+
 ## Contributing
 
 1. Fork it
