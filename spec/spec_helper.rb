@@ -5,6 +5,7 @@ RSpec.configure do |c|
 
   c.before do
     ENV.delete('ZONEBIE_TZ')
+    ENV.delete('ZONEBIE_INFO')
     Zonebie.backend = nil # reset to default
   end
 end
