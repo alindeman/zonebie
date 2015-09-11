@@ -3,7 +3,12 @@ module Zonebie
     def load_from_wikipedia(zone)
       require 'wikipedia'
       @request = Thread.new {
-        Wikipedia.find(zone).text.split("\n").first
+        text = Wikipedia.find(zone).text
+        if text
+          text.split("\n").first
+        else
+          "No infomration available for #{zone}"
+        end
       }
     rescue LoadError
       @request = :load_error
@@ -16,7 +21,7 @@ module Zonebie
       when :load_error
         $stderr.puts 'Please install the wikipedia-client gem to download zone info'
       else 
-        $stdout.puts @request.join.value
+        $stdout.puts "", @request.join.value
       end
     end
   end
