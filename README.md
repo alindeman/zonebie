@@ -51,7 +51,7 @@ Zonebie.set_random_timezone
 Add to `spec/spec_helper.rb`:
 
 ```ruby
-Zonebie.set_random_timezone
+require "zonebie/rspec"
 ```
 
 ### Cucumber
