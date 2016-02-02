@@ -3,7 +3,7 @@ require "spec_helper"
 describe Zonebie::Backends::TZInfo do
   describe "#name" do
     it "is :tzinfo" do
-      described_class.name.should == :tzinfo
+      expect(described_class.name).to eq :tzinfo
     end
   end
 
@@ -15,7 +15,7 @@ describe Zonebie::Backends::TZInfo do
           stub(:identifier => "America/New York")
         ])
 
-      described_class.zones.should =~ ["America/Chicago", "America/New York"]
+        expect(described_class.zones).to eq ["America/Chicago", "America/New York"]
     end
   end
 
@@ -28,14 +28,14 @@ describe Zonebie::Backends::TZInfo do
 
   describe "usable?" do
     it "returns true if TZInfo is available" do
-      described_class.should be_usable
+      expect(described_class).to be_usable
     end
 
     it "returns false if TZInfo is unavailable" do
       old_tz_info = TZInfo
       Object.send(:remove_const, :TZInfo)
       begin
-        described_class.should_not be_usable
+        expect(described_class).not_to be_usable
       ensure
         TZInfo = old_tz_info
       end
