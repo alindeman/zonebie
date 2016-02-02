@@ -11,16 +11,16 @@ debug (more information below).
 
 ## Requirements
 
-* MRI (1.8.7, 1.9.2, 1.9.3, 2.0.0)
-* JRuby (1.6, 1.7)
-* Rubinius (1.2, 2.0)
+* MRI (2.0.x, 2.1.x, 2.2.x, 2.3.x)
+* JRuby (1.7)
+* Rubinius (2.0)
 
 ***
 
 And **either** of these gems which adds timezone support to Ruby:
 
-* `activesupport` >= 2.3 (Rails 2.3, 3.0, 3.1, 3.2, 4.0, 4.1)
-* `tzinfo` >= 0.3
+* `activesupport` >= 3.0 (Rails 3.0, 3.1, 3.2, 4.0, 4.1, 4.2)
+* `tzinfo` >= 1.2
 
 ## Installation
 
