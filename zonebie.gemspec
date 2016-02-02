@@ -9,6 +9,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/alindeman/zonebie"
   gem.license       = 'MIT'
 
+
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -23,4 +24,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "activesupport", ">=2.3"
   gem.add_development_dependency "tzinfo", "~>1.0", ">= 1.0.1"
   gem.add_development_dependency "tzinfo-data", ">= 1.2013.4"
+  gem.required_ruby_version = '>= 1.9.3'
 end
