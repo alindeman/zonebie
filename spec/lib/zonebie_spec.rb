@@ -90,8 +90,5 @@ describe Zonebie do
       Zonebie.backend = :my_awesome_backend
     end
 
-    it "returns a random timezone" do
-      Zonebie.random_timezone.should == "Eastern Time (US & Canada)"
-    end
   end
 end
