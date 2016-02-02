@@ -24,5 +24,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "activesupport", ">=2.3"
   gem.add_development_dependency "tzinfo", "~>1.0", ">= 1.0.1"
   gem.add_development_dependency "tzinfo-data", ">= 1.2013.4"
-  gem.required_ruby_version = '>= 1.9.3'
+  gem.required_ruby_version = '>= 2.0.0'
 end
