@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "zonebie"
   gem.require_paths = ["lib"]
-  gem.version       = Zonebie::VERSION
+  gem.version       = '0.5.1'
 
   gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec", "~>2.14"
