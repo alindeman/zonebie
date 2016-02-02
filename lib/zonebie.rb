@@ -22,7 +22,7 @@ module Zonebie
                    @backends[backend]
                  else
                    backend
-      end
+                 end
 
       if !backend.nil? && @backend.nil?
         fail ArgumentError, "Unsupported backend: #{backend}"
