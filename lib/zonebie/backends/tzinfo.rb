@@ -1,9 +1,3 @@
-begin
-  require 'tzinfo'
-rescue LoadError
-  # not required; this backend will simply not be used
-end
-
 module Zonebie
   module Backends
     class TZInfo
