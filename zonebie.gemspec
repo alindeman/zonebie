@@ -1,5 +1,7 @@
-# -*- encoding: utf-8 -*-
-require File.expand_path('../lib/zonebie/version', __FILE__)
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'zonebie/version'
 
 Gem::Specification.new do |gem|
   gem.authors       = ['Andy Lindeman', 'Steven Harman', 'Patrick Van Stee']
@@ -8,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Zonebie prevents bugs in code that deals with timezones by randomly assigning a zone on every run}
   gem.homepage      = "https://github.com/alindeman/zonebie"
   gem.license       = 'MIT'
+
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
@@ -23,4 +26,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "activesupport", ">=2.3"
   gem.add_development_dependency "tzinfo", "~>1.0", ">= 1.0.1"
   gem.add_development_dependency "tzinfo-data", ">= 1.2013.4"
+  gem.required_ruby_version = '>= 2.0.0'
 end

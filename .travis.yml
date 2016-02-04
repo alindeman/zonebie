@@ -1,8 +1,10 @@
 language: ruby
 rvm:
-  - 1.8.7
-  - 1.9.2
-  - 1.9.3
   - 2.0.0
+  - 2.1.8
+  - 2.2.4
+  - 2.3.0
   - jruby-19mode
   - rbx-2
+env:
+  - CODECLIMATE_REPO_TOKEN=58311d9f7176510efba87c27e9d83b4fb058cc72a79bddcc3ced9daf05a2a423
