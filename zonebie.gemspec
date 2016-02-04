@@ -1,5 +1,7 @@
-# -*- encoding: utf-8 -*-
-require File.expand_path('../lib/zonebie/version', __FILE__)
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'zonebie/version'
 
 Gem::Specification.new do |gem|
   gem.authors       = ['Andy Lindeman', 'Steven Harman', 'Patrick Van Stee']
@@ -15,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "zonebie"
   gem.require_paths = ["lib"]
-  gem.version       = '0.5.1'
+  gem.version       = Zonebie::VERSION
 
   gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec", "~>2.14"
