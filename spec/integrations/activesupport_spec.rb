@@ -1,5 +1,4 @@
 require "spec_helper"
-require "active_support/time"
 
 describe Zonebie do
   before do
