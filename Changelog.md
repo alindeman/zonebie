@@ -1,3 +1,8 @@
+## 0.6.0 (13 March 2016)
+
+* Refactorings (Yuki Matsukura)
+* Drops support for end-of-lifed Ruby versions 1.8.7 and 1.9.x
+
 ## 0.5.1 (17 August 2013)
 
 * Includes license information in gemspec. (Andy Lindeman)
