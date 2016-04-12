@@ -111,3 +111,16 @@ ZONEBIE_TZ="Eastern Time (US & Canada)" rake
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+### Testing
+
+Make sure tests pass before submitting pull request. 
+
+Install dependencies:
+
+    $ bundle install
+
+Run tests:
+
+    $ rake

@@ -1,3 +1,7 @@
+## 0.7.0 (UNRELEASED)
+
+* [BUGFIX] reintroduces `random_timezone` to fix regression
+
 ## 0.6.0 (13 March 2016)
 
 * Refactorings (Yuki Matsukura)
