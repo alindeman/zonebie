@@ -1,6 +1,6 @@
 # Zonebie
 
-[![Build Status](https://secure.travis-ci.org/alindeman/zonebie.png)](http://travis-ci.org/alindeman/zonebie)
+[![Build Status](https://secure.travis-ci.org/alindeman/zonebie.svg)](http://travis-ci.org/alindeman/zonebie)
 
 Zonebie prevents bugs in code that deals with timezones by randomly assigning a
 zone on every run.
