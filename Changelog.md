@@ -1,3 +1,7 @@
+## 0.6.1 (12 April 2016)
+
+* Restores the `Zonebie.random_timezone` API (Ben Borowski)
+
 ## 0.6.0 (13 March 2016)
 
 * Refactorings (Yuki Matsukura)
