@@ -90,5 +90,8 @@ describe Zonebie do
       Zonebie.backend = :my_awesome_backend
     end
 
+    it "returns a random timezone" do
+      expect(Zonebie.random_timezone).to eq("Eastern Time (US & Canada)")
+    end
   end
 end
