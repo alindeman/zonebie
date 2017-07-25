@@ -24,7 +24,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "rspec", "~> 3.4"
   gem.add_development_dependency "mocha", "~> 0.14.0"
 
-  gem.add_development_dependency "activesupport", "~> 3.0"
+  gem.add_development_dependency "activesupport", ">= 3.0", "<= 5.1"
+  gem.add_development_dependency "appraisal", "~> 2.2"
   gem.add_development_dependency "tzinfo", "~> 1.2", ">= 1.2.2"
   gem.add_development_dependency "tzinfo-data", ">= 1.2016.1"
 end
