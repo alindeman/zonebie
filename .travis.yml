@@ -5,7 +5,7 @@ rvm:
   - 2.2.4
   - 2.3.0
   - jruby-9.1.9.0
-  - rbx-2.2.7
+  - rbx-2
 gemfile:
   - gemfiles/activesupport_3.gemfile
   - gemfiles/activesupport_4_1.gemfile
@@ -22,3 +22,5 @@ matrix:
       gemfile: gemfiles/activesupport_5_0.gemfile
     - rvm: 2.1.8
       gemfile: gemfiles/activesupport_5_1.gemfile
+  allow_failures:
+    - rvm: rbx-2
