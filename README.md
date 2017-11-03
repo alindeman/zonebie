@@ -11,9 +11,9 @@ debug (more information below).
 
 ## Requirements
 
-* MRI (2.0.x, 2.1.x, 2.2.x, 2.3.x)
+* MRI (2.0.x, 2.1.x, 2.2.x, 2.3.x, 2.4.x)
 * JRuby (1.7)
-* Rubinius (2.0)
+* Rubinius (3.x)
 
 ***
 
